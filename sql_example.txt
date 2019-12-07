@@ -1,0 +1,43 @@
+
+CREATE TABLE IF NOT EXISTS `images` (
+  `pKey` int(11) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) NOT NULL,
+  `upload_time` varchar(255) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `order` int(11) NOT NULL,
+  PRIMARY KEY (`pKey`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+
+--
+-- Contenu de la table `images`
+--
+
+INSERT INTO `images` (`pKey`, `file_name`, `upload_time`, `slug`, `order`) VALUES
+(98, 'goth boy.jpg', '2019-12-07 15:06:32', '', 0),
+(99, 'f_lordsof2m_ace5ce8.jpg', '2019-12-07 15:06:32', '', 0),
+(100, 'frankenstein.jpg', '2019-12-07 15:06:32', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pages`
+--
+
+CREATE TABLE IF NOT EXISTS `pages` (
+  `pKey` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `text` longtext NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `audio` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`pKey`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `pages`
+--
+
+INSERT INTO `pages` (`pKey`, `name`, `text`, `image`, `audio`) VALUES
+(1, 'about', '<p><strong class="ql-size-large"><em>Olivia Lavergne</em></strong></p><p><strong class="ql-size-large"><em> 1979, FrancÌ§aise, neÌe aÌ€ Paris, France </em></strong></p><p><br></p><p><br></p><p><br></p><p>Artiste franÃ§aise, Olivia Lavergne est nÃ©e en 1979 Ã Paris. AprÃ¨s des Ã©tudes littÃ©raires,</p><p class="ql-align-justify">elle s oriente vers la photographie et deÌbute un travail dâ€™auteur aÌ€ partir de 2003.</p><p class="ql-align-justify">Elle suit les cours des universiteÌs Paris VII / Paris VIII et de l Ecole Nationale des Arts DeÌcoratifs.</p><p class="ql-align-justify">Elle est diploÌ‚meÌe d un Deug de Lettres Modernes (2002), d une MaiÌ‚trise en Photographie (2005)</p><p class="ql-align-justify">et d un Master en Art Contemporain &amp; Nouveaux MeÌdias (2007). Dans ses images, la mise en</p><p class="ql-align-justify">sceÌ€ne flirte avec le reÌel et cela deÌ€s les premiers travaux exposeÌs en 2010 lors du Festival Off des</p><p class="ql-align-justify">Rencontres Internationales de la Photographie aÌ€ Arles. Olivia voyage aÌ€ Berlin, aÌ€ New-York, en Guyane.</p><p class="ql-align-justify">Elle explore ensuite de facÌ§on plus personnelle une veÌgeÌtation tropicale et dense, une foreÌ‚t luxuriante.</p><p class="ql-align-justify">Olivia Lavergne travaille sur la perception et la meÌtamorphose du paysage, qu il soit artificiel ou naturel.</p><p class="ql-align-justify">Elle imagine des dispositifs visuels qui posent la question du vrai et du faux, du naturel et de l artificiel</p><p class="ql-align-justify">en inventant un au-delaÌ€ du lieu.</p><p class="ql-align-justify">Olivia Lavergne a notamment eÌteÌ exposeÌe au Noorderlicht International Photofestival, au festival Les Photaumnales,</p><p class="ql-align-justify">au festival Photo Saint-Germain, au festival Circulation(s), au festival Fotografico Europeo, au festival Les Boutographies,</p><p class="ql-align-justify">aÌ€ Fotofever Photography Art Fair Paris, aÌ€ Affordable Art Fair Bruxelles et au Multimedia Art Museum de Moscou.</p><p class="ql-align-justify">Son travail a recÌ§u le prix AFAR Travel Photography Awards (2018), le prix Moscou International Foto Award (2015),</p><p class="ql-align-justify">LensCulture Emerging Talent Award (2014) et le prix Coup de coeur ARTE Actions Culturelles (2013).</p><p class="ql-align-justify"><br></p><p class="ql-align-justify">Ses photographies sont preÌsenteÌes par la Galerie Insula aÌ€ Paris et la Galerie Confluence aÌ€ Nantes.</p>', 'goth.jpg', 'ZOOM0171.mp3'),
+(2, 'news', '<h2>title</h2><ul><li><a href="http://tomson.kwst.net/light/blog.html#" target="_blank">12 may 2017</a></li><li>-</li><li><a href="http://tomson.kwst.net/light/blog.html#" target="_blank">Interviews </a></li><li><a href="http://tomson.kwst.net/light/blog.html#" target="_blank">Design</a></li></ul><p><img src="http://tomson.kwst.net/light/images/folio/5.jpg"></p><ul><li>Tags : <a href="http://tomson.kwst.net/light/blog.html#" target="_blank">Design</a></li><li><a href="http://tomson.kwst.net/light/blog.html#" target="_blank">Photography</a></li><li><a href="http://tomson.kwst.net/light/blog.html#" target="_blank">Fasion</a></li></ul><p>Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..</p>', '1.jpg', 'ZOOM0172.mp3'),
+(3, 'contacts', '<h3><strong>CONTACT&#39; INFORMATION</strong></h3><p><br></p><p><br></p><p><br></p><h4><em>Bla bla</em></h4><p>If you’d like to talk about a project, our work or anything else then get in touch.</p>', 'angelo.jpg', 'couverture.jpg'),
+(4, 'home', '<p class="ql-align-right"><span style="color: rgb(255, 235, 204); background-color: rgb(0, 0, 0);">03. Branding</span></p><p class="ql-align-right"><br></p><h4 class="ql-align-right"><span style="color: rgb(255, 235, 204); background-color: rgb(0, 0, 0);">Photographer and director based in New York</span></h4><h2 class="ql-align-right"><span style="color: rgb(255, 235, 204); background-color: rgb(0, 0, 0);">Jane Kowalski</span></h2><p class="ql-align-right"><span style="color: rgb(255, 235, 204); background-color: rgb(0, 0, 0);">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>', NULL, 'ZOOM0173.mp3');
