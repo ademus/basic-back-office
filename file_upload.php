@@ -40,7 +40,7 @@ for( $i=0 ; $i < $total ; $i++ ) {
     //Upload the file into the temp dir
     if(move_uploaded_file($tmpFilePath, $newFilePath)) {
         //insert file information into db table
-	if(isset($_REQUEST['slug']))
+	if(isset($_REQUEST['slug']) && $_REQUEST['action']!='Modifier2')
 	    {
 	
 	    $mysql_insert = "INSERT INTO images (file_name, upload_time, slug)VALUES('".$fileName."','".date("Y-m-d H:i:s")."', '".$slug."')";
