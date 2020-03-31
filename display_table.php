@@ -74,6 +74,14 @@ if ($resultats != true)
 		case "files":
 		case "drag":
 
+		    
+		       if($cur_field['label']=="image")
+			{
+			$src="../"._upload_dir_.$res['image'];
+			echo '<div style="min-width:100px;min-height:50px; width:100%; height:auto; 	background: url('.$src.') no-repeat center center; background-size: contain; "></div>';   
+			break;
+			}
+			
 		default:
 		    echo $res["$table_field"] . '&nbsp;';
 		    break;
