@@ -21,7 +21,7 @@ if ($cur_table_name == "")  exit();
 //echo $requete;
 
     if (isset($_GET['ord'])) $ord = $_GET['ord'];
-    else $ord = "pKey";
+    else $ord = $_pKey_label_;
     $requete.=" order by " . $ord . ";";
 //echo $requete;
     $_connexion_ = connexion(serveur, user, passe, base);
@@ -54,8 +54,8 @@ if ($resultats != true)
     while ($res = mysqli_fetch_array($resultats))
 	{
 	
-	echo '<tr><td align="center"><a title="modify" href="' . basename($_SERVER["PHP_SELF"]) . '?pKey=' . $res["pKey"] . '&action=Modifier&table=' . $cur_table_name .
-	'"><span class="glyphicon glyphicon-pencil"></span></a> - <a title="delete" href="javascript:confirmation(\'' . basename($_SERVER["PHP_SELF"]) . '?table=' . $cur_table_name. '&action=Supprimer&pKey=' . $res["pKey"] .
+	echo '<tr><td align="center"><a title="modify" href="' . basename($_SERVER["PHP_SELF"]) . '?pKey=' . $res[$_pKey_label_] . '&action=Modifier&table=' . $cur_table_name .
+	'"><span class="glyphicon glyphicon-pencil"></span></a> - <a title="delete" href="javascript:confirmation(\'' . basename($_SERVER["PHP_SELF"]) . '?table=' . $cur_table_name. '&action=Supprimer&'.$_pKey_label_.'=' . $res[$_pKey_label_] .
 	'\');"><span class="glyphicon glyphicon-trash"></span><a></td>';
 
 	foreach ($cur_table as $cur_field)

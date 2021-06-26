@@ -41,7 +41,7 @@
 		   <form action="" class=""></form>	
 			<div class="container">
 				<div class="file_upload">
-					<form action="file_upload.php" class="dropzone">
+					<form action="upload_import.php" class="dropzone">
 						<div class="dz-message needsclick">
 							<strong>Drop files here or click to upload.</strong><br />
 						</div>

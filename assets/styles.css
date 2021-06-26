@@ -1,3 +1,18 @@
 body{
     padding:1em;
 }
+
+.fieldset{
+   border: thin solid #337ab7;
+   border-radius: 5px;
+   padding: 0.4em;
+}
+
+#button_csv_import{
+   cursor: pointer;
+}
+
+.cadre{
+   padding-left: 20px;
+   margin-left: 20px;
+}

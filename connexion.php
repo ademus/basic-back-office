@@ -11,7 +11,7 @@
 define("_upload_dir_", "uploads/");
 
 define("serveur", "localhost");
-define("base", "olivia2");
+define("base", "digiforma");
 define("user", "root");
 define("passe", "");
 

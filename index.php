@@ -57,7 +57,7 @@ include_once ('structure.php');
 		if (in_array($cur_field['type'], [ "files", "drag"]))
 		    {
 		    $cur_label = $label;
-		    include "file_upload.php";
+		    include "upload_import.php";
 		    }
 		//  (CLASSIC) SINGLE FILE UPLOAD,   
 		else if (in_array($cur_field['type'], [ "file"]))
@@ -65,7 +65,7 @@ include_once ('structure.php');
 		    $fileName = "";
 		    
 		    $cur_label = $label;
-		    include "file_upload.php";
+		    include "upload_import.php";
 		    if ($fileName != "")
 			{
 			$_set.=$comma . " `" . $label . "`='" . $fileName . "'"; // NO ESCAPE CHARS BECAUSE WE'RE IN A BACKOFFICE WITH GRANTED ACCESS AND AUTHORIZD USERS WHO KNOW WHAT THEY WRITE
@@ -95,7 +95,7 @@ include_once ('structure.php');
 	$cur_table_name = "";
 	if (isset($_REQUEST['table'])) $cur_table_name = $_REQUEST['table'];
 	if (isset($_REQUEST['action'])) $action = $_REQUEST['action'];
-	if (isset($_REQUEST['pKey'])) $pKey = $_REQUEST['pKey'];
+	if (isset($_REQUEST[$_pKey_label_])) $pKey = $_REQUEST[$_pKey_label_];
 	if (isset($_REQUEST['cur_categ'])) $cur_categ = $_REQUEST['cur_categ'];
 
 
@@ -118,7 +118,7 @@ include_once ('structure.php');
 	    </tr>
 	</table>
 	<?php
-	if (isset($cur_table_name))
+	if (!empty($cur_table_name))
 	    {
 	    include("title.php");
 	    }
@@ -147,14 +147,14 @@ include_once ('structure.php');
 			$file = "../"._upload_dir_ . $res['file_name'];
 		//	echo"<br>delete ".$file;
 			unlink($file);
-			$requete = "delete from `images`  where pKey='" . $res['pKey'] . "'";
+			$requete = "delete from `images`  where ".$_pKey_label_."='" . $res['pKey'] . "'";
 		//	echo"<br>".$requete;
 			$delete = query($requete);
 			}
 		    }
 
 		// NORMAL
-		$requete = "delete from `" . $cur_table_name . "`  where pKey='" . $pKey . "'";
+		$requete = "delete from `" . $cur_table_name . "`  where ".$_pKey_label_."='" . $pKey . "'";
 		//echo"<br>".$requete;
 		$delete = query($requete);
 		if ($delete == TRUE)
@@ -181,7 +181,7 @@ include_once ('structure.php');
 
 
 	    case "Modifier2";
-		$requete = "update `" . $cur_table_name . "` set " . _set($pKey) . " where pKey='$pKey'";
+		$requete = "update `" . $cur_table_name . "` set " . _set($pKey) . " where ".$_pKey_label_."='$pKey'";
 		//echo $requete; 		exit;
 		$results = query($requete);
 		//$pKey = mysql_insert_id($_connexion_);
@@ -197,7 +197,7 @@ include_once ('structure.php');
 
 
 	    case "Modifier";
-		$requete = "select * from `" . $cur_table_name . "`  where pKey='$pKey'";
+		$requete = "select * from `" . $cur_table_name . "`  where ".$_pKey_label_."='$pKey'";
 		//echo $requete;
 		$results = query($requete);
 		$res = mysqli_fetch_object($results);
@@ -206,6 +206,16 @@ include_once ('structure.php');
 		include('form.php');
 		$notDisplayListing = true;
 
+		break;
+         
+         
+         case "csv";
+		$fileName = "";
+		$cur_label = $label = "csv";
+		include "upload_import.php";
+            if ($results == true)
+                 $message = "CSV has been properly imported.<br>";
+		else $message = "Error while importing CSV<br>";
 		break;
 	    }
 

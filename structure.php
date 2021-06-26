@@ -3,39 +3,55 @@
 /* ????????????????????????????????????????????????????????????????????
   DATABASE STRUCTURE
   ???????????????????????????????????????????????????????????????????? */
+$_pKey_label_ = "id"; // COULD BE id for example
+// THIS KEYD DOES NOT APPEAR IN FORMS<br/>
+// THIS KEY GOES AUTOMATICALLY INSERTED WHYLE ADDING NEW ITEMS
 
 /* ????????????????????????????????????????????????????????????????????
-  FOR EACH TABLE, EACH FIELD MUST BE DEFINE AS
+  FOR EACH TABLE, 
+ * 
+ * >EACH FIELD MUST BE DEFINE AS
  * 		VAR : field name in MYSQL table 
  * 		LABEL : field name displayed in HTML (possible accents )
  * 		TYPE : choose between : int / INTEGER
  *					varchar : SHORT TEXT
  *					text : DISPLAY A TEXT EDITOR, BETTER USE OF LONGTEXT IN TABLE
+ *                            file :   SINGLE FILE UPLOAD WITH CLASIC INPUT FIELD
  *					files :  MULTIFILES UPLOAD WITH CLASIC INPUT FIELD
  *					drag : MULTIFILES UPLOAD WITH DRAG 'n DROP
+ * 
+ * >A PRIMARY KEY IS MANDATORY, with same name as $_pKey_label_
   ???????????????????????????????????????????????????????????????????? */
 
 
-$_tables_ = array("pages" => array(
-	array("var" => "pKey", "label" => "pKey", "type" => "int"),
-	array("var" => "name", "label" => "Nom", "type" => "varchar"),
-	array("var" => "text", "label" => "text", "type" => "text"),
-	array("var" => "image", "label" => "image", "type" => "file"),
-	array("var" => "audio", "label" => "audio", "type" => "file"),
-    ),
+$_tables_ = array(
+  
+  
+  "contacts" => array(
+	array("var" => "id", "label" => "pKey", "type" => "int"),
+	array("var" => "numero", "label" => "numero", "type" => "file"),
+	array("var" => "nom", "label" => "Nom", "type" => "varchar"),
+	array("var" => "prenom", "label" => "prenom", "type" => "varchar"),
+	array("var" => "telfixe", "label" => "telfixe", "type" => "varchar"),
+	array("var" => "courriel", "label" => "courriel", "type" => "varchar")
 
-
-    "images" => array(
-	array("var" => "pKey", "label" => "pKey", "type" => "int"),
-	array("var" => "order", "label" => "ordre", "type" => "int"),
-	array("var" => "slug", "label" => "slug", "type" => "varchar"),
-	array("var" => "file_name", "label" => "image", "type" => "drag")
     ),
-    
+  
+  
+   "lieux" => array(
+	array("var" => "id", "label" => "pKey", "type" => "int"),
+	array("var" => "id-lieu", "label" => "id-lieu", "type" => "varchar"),
+	array("var" => "numero-voie", "label" => "numero-voie", "type" => "varchar"),
+	array("var" => "code-nature-voie", "label" => "code-nature-voie", "type" => "varchar"),
+	array("var" => "libelle-voie", "label" => "libelle-voie", "type" => "varchar"),
+	array("var" => "adresse", "label" => "adresse", "type" => "varchar"),
+	array("var" => "codepostal", "label" => "codepostal", "type" => "varchar"),
+	array("var" => "ville", "label" => "ville", "type" => "varchar"),
+    )
+  
+  
 );
 
 
-$_pKey_label_ = "pKey"; // COULD BE id for example
-// THIS KEYD DOES NOT APPEAR IN FORMS<br/>
-// THIS KEY GOES AUTOMATICALLY INSERTED WHYLE ADDING NEW ITEMS
+
 ?>
