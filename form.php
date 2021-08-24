@@ -7,7 +7,7 @@
 <form id="main_form" action="index.php" method="post" enctype="multipart/form-data">
     <?php
 
-    function objet_form($var, $type, $value="", $pKey)
+    function objet_form($var, $label,$type, $value="", $pKey)
 	{
 	global $_tables_;
 	global $cur_table_name;
@@ -83,7 +83,7 @@
 		    }
 	if($table_field=='slug' && $cur_table_name=="images" && !empty($cur_categ))
 	    {}else
-		objet_form($table_field,$cur_field['type'], $field_value, $pKey);
+		objet_form($table_field,$cur_label,$cur_field['type'], $field_value, $pKey);
 	    
 	    }
 	if(!empty($cur_categ)) echo '<input type="hidden" name="slug" value="' . $cur_categ . '">';
