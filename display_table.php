@@ -22,7 +22,7 @@ if ($cur_table_name == "")  exit();
 
     if (isset($_GET['ord'])) $ord = $_GET['ord'];
     else $ord = $_pKey_label_;
-    $requete.=" order by " . $ord . ";";
+    $requete.=" order by `" . $ord . "`;";
 //echo $requete;
     $_connexion_ = connexion(serveur, user, passe, base);
     $resultats = query($requete, $_connexion_);
